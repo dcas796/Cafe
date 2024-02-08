@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct CafeApp: App {
+    @State var isActive: Bool = false
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra("Café", systemImage: isActive ? "cup.and.saucer.fill" : "cup.and.saucer") {
+            PopupView(isActive: $isActive)
+        }
+        .menuBarExtraStyle(.window)
+        
+        Settings {
+            SettingsView()
         }
     }
 }

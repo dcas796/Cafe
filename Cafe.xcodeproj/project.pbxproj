@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		330663192B73FB2700BBF96D /* CafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330663182B73FB2700BBF96D /* CafeApp.swift */; };
-		3306631B2B73FB2700BBF96D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306631A2B73FB2700BBF96D /* ContentView.swift */; };
 		3306631D2B73FB2800BBF96D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3306631C2B73FB2800BBF96D /* Assets.xcassets */; };
 		330663202B73FB2800BBF96D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3306631F2B73FB2800BBF96D /* Preview Assets.xcassets */; };
+		3306632B2B74113900BBF96D /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632A2B74113900BBF96D /* PopupView.swift */; };
+		3306632D2B75577C00BBF96D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632C2B75577C00BBF96D /* SettingsView.swift */; };
+		3306632F2B75591500BBF96D /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632E2B75591500BBF96D /* GeneralSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		330663152B73FB2700BBF96D /* Cafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330663182B73FB2700BBF96D /* CafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeApp.swift; sourceTree = "<group>"; };
-		3306631A2B73FB2700BBF96D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3306631C2B73FB2800BBF96D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3306631F2B73FB2800BBF96D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		330663212B73FB2800BBF96D /* Cafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cafe.entitlements; sourceTree = "<group>"; };
+		330663272B73FBAF00BBF96D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3306632A2B74113900BBF96D /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		3306632C2B75577C00BBF96D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3306632E2B75591500BBF96D /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		330663302B7565C600BBF96D /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,8 @@
 		3306630C2B73FB2700BBF96D = {
 			isa = PBXGroup;
 			children = (
+				330663272B73FBAF00BBF96D /* README.md */,
+				330663302B7565C600BBF96D /* TODO.md */,
 				330663172B73FB2700BBF96D /* Cafe */,
 				330663162B73FB2700BBF96D /* Products */,
 			);
@@ -53,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				330663182B73FB2700BBF96D /* CafeApp.swift */,
-				3306631A2B73FB2700BBF96D /* ContentView.swift */,
+				3306632A2B74113900BBF96D /* PopupView.swift */,
+				3306632C2B75577C00BBF96D /* SettingsView.swift */,
+				3306632E2B75591500BBF96D /* GeneralSettingsView.swift */,
 				3306631C2B73FB2800BBF96D /* Assets.xcassets */,
 				330663212B73FB2800BBF96D /* Cafe.entitlements */,
 				3306631E2B73FB2800BBF96D /* Preview Content */,
@@ -139,8 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3306631B2B73FB2700BBF96D /* ContentView.swift in Sources */,
+				3306632D2B75577C00BBF96D /* SettingsView.swift in Sources */,
 				330663192B73FB2700BBF96D /* CafeApp.swift in Sources */,
+				3306632F2B75591500BBF96D /* GeneralSettingsView.swift in Sources */,
+				3306632B2B74113900BBF96D /* PopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +291,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Café";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +319,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Café";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
