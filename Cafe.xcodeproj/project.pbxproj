@@ -13,6 +13,7 @@
 		3306632B2B74113900BBF96D /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632A2B74113900BBF96D /* PopupView.swift */; };
 		3306632D2B75577C00BBF96D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632C2B75577C00BBF96D /* SettingsView.swift */; };
 		3306632F2B75591500BBF96D /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3306632E2B75591500BBF96D /* GeneralSettingsView.swift */; };
+		330663352B75681A00BBF96D /* menu_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 330663342B75681A00BBF96D /* menu_bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +27,7 @@
 		3306632C2B75577C00BBF96D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3306632E2B75591500BBF96D /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		330663302B7565C600BBF96D /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
-		330663322B7566D300BBF96D /* menu_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_bar.png; sourceTree = "<group>"; };
+		330663342B75681A00BBF96D /* menu_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_bar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +85,7 @@
 		330663312B75669700BBF96D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				330663322B7566D300BBF96D /* menu_bar.png */,
+				330663342B75681A00BBF96D /* menu_bar.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -147,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330663352B75681A00BBF96D /* menu_bar.png in Resources */,
 				330663202B73FB2800BBF96D /* Preview Assets.xcassets in Resources */,
 				3306631D2B73FB2800BBF96D /* Assets.xcassets in Resources */,
 			);
