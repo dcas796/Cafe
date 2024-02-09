@@ -35,25 +35,31 @@ struct GeneralSettingsView: View {
     @State private var _timer: Timer?
     
     var body: some View {
-        Toggle("Launches Automatically at Login", 
-               isOn: Binding(get: { launchesAtLogin }, set: updateLaunchesAtLogin))
-            .padding()
-            .onAppear {
-                _timer = Timer.scheduledTimer(
-                    withTimeInterval: 1,
-                    repeats: true) { _ in
-                        if SMAppService.mainApp.status == .enabled {
-                            launchesAtLogin = true
-                        } else {
-                            launchesAtLogin = false
-                        }
-                    }
+        VStack(spacing: 20) {
+            Toggle("Launches Automatically at Login",
+                   isOn: Binding(get: { launchesAtLogin }, set: updateLaunchesAtLogin))
                 
-                _timer?.fire()
+            Button("Quit Café") {
+                NSApplication.shared.terminate(nil)
             }
-            .alert(isPresented: $isErrorPresent, error: error) {
-                Button("OK", role: .cancel) {}
-            }
+        }
+        .padding()
+        .onAppear {
+            _timer = Timer.scheduledTimer(
+                withTimeInterval: 1,
+                repeats: true) { _ in
+                    if SMAppService.mainApp.status == .enabled {
+                        launchesAtLogin = true
+                    } else {
+                        launchesAtLogin = false
+                    }
+                }
+            
+            _timer?.fire()
+        }
+        .alert(isPresented: $isErrorPresent, error: error) {
+            Button("OK", role: .cancel) {}
+        }
     }
     
     func updateLaunchesAtLogin(newValue: Bool) {

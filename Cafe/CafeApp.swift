@@ -14,6 +14,10 @@ struct CafeApp: App {
     
     @State private var _assertionID: IOPMAssertionID = 0
     
+    init() {
+        NSApplication.shared.setActivationPolicy(.accessory)
+    }
+    
     var body: some Scene {
         MenuBarExtra("Café", systemImage: isActive ? "cup.and.saucer.fill" : "cup.and.saucer") {
             PopupView(isActive: $isActive)
