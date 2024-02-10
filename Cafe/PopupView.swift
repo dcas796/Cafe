@@ -7,39 +7,31 @@
 
 import SwiftUI
 
+enum CurrentView {
+    case `default`
+    case scheduler
+    case pidScheduler
+    case dateScheduler
+}
+
 struct PopupView: View {
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.openURL) var openURL
-    
-    @Binding var isActive: Bool
+    @EnvironmentObject var model: ModelData
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            VStack(spacing: 20) {
-                Text(isActive ? "Active" : "Inactive")
-                    .font(.title3)
-                    .bold()
-                
-                Image(systemName: isActive ? "cup.and.saucer.fill" : "cup.and.saucer")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 50)
-                
-                Toggle("", isOn: $isActive)
-                    .toggleStyle(.switch)
-            }
-            .frame(width: 150)
-            
-            SettingsLink {
-                Image(systemName: "gear")
-            }
-            .buttonStyle(.borderless)
+        switch model.currentView {
+        case .default:
+            DefaultPopupView()
+        case .scheduler:
+            SchedulerView()
+        case .pidScheduler:
+            PIDSchedulerView()
+        case .dateScheduler:
+            DateSchedulerView()
         }
-        .padding()
     }
 }
 
 #Preview {
-    @State var isActive: Bool = false
-    return PopupView(isActive: $isActive)
+    PopupView()
+        .environmentObject(ModelData())
 }

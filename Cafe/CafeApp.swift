@@ -10,7 +10,7 @@ import IOKit.pwr_mgt
 
 @main
 struct CafeApp: App {
-    @State var isActive: Bool = false
+    @StateObject var model: ModelData = ModelData()
     
     @State private var _assertionID: IOPMAssertionID = 0
     
@@ -19,11 +19,12 @@ struct CafeApp: App {
     }
     
     var body: some Scene {
-        MenuBarExtra("Café", systemImage: isActive ? "cup.and.saucer.fill" : "cup.and.saucer") {
-            PopupView(isActive: $isActive)
+        MenuBarExtra("Café", systemImage: model.isActive ? "cup.and.saucer.fill" : "cup.and.saucer") {
+            PopupView()
+                .environmentObject(model)
         }
         .menuBarExtraStyle(.window)
-        .onChange(of: isActive, didChangeActivation)
+        .onChange(of: model.isActive, didChangeActivation)
         
         Settings {
             SettingsView()
@@ -31,9 +32,10 @@ struct CafeApp: App {
     }
     
     func didChangeActivation() {
-        if isActive {
+        if model.isActive {
             guard disableSleep() else {
-                isActive = false
+                // TODO: Find a way to roll back model.isActive without triggering .onChange(of:,_:)
+                // model.isActive = false
                 return
             }
         } else {
