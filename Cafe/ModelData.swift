@@ -7,11 +7,26 @@
 
 import Foundation
 import Combine
+import SwiftUI
+
+enum CurrentView: Int, Hashable, Equatable, CaseIterable {
+    case `default`
+    case scheduler
+    case pidScheduler
+    case dateScheduler
+}
 
 class ModelData: ObservableObject {
     @Published var isActive: Bool = false
     @Published var currentView: CurrentView = .default
     @Published private var schedulerPublishers: [ScheduleItem : AnyCancellable] = [:]
+    
+    private var viewSizes: [CurrentView : CGSize] = [
+        .default: CGSize(width: 250, height: 300),
+        .scheduler: CGSize(width: 300, height: 400),
+        .pidScheduler: CGSize(width: 250, height: 250),
+        .dateScheduler: CGSize(width: 250, height: 250)
+    ]
     
     var scheduledItems: [ScheduleItem] {
         Array(schedulerPublishers.keys)
@@ -53,5 +68,31 @@ class ModelData: ObservableObject {
         
         cancellable.cancel()
         item.deactivate()
+    }
+    
+    func viewSize(for viewCase: CurrentView) -> CGSize {
+        switch viewCase {
+        case .default:
+            CGSize(width: 240, height: 250)
+        case .scheduler:
+            CGSize(width: 300, height: 400)
+        case .pidScheduler:
+            CGSize(width: 300, height: 250)
+        case .dateScheduler:
+            CGSize(width: 300, height: 250)
+        }
+    }
+    
+    func view(for viewCase: CurrentView) -> some View {
+        switch viewCase {
+        case .default:
+            return AnyView(DefaultPopupView())
+        case .scheduler:
+            return AnyView(SchedulerView())
+        case .pidScheduler:
+            return AnyView(PIDSchedulerView())
+        case .dateScheduler:
+            return AnyView(DateSchedulerView())
+        }
     }
 }

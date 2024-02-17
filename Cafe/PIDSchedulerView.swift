@@ -27,6 +27,8 @@ struct PIDSchedulerView: View {
                     .font(.title3)
                     .bold()
                 
+                Spacer()
+                
                 TextField("PID", text: $pid)
                     .frame(maxWidth: 75)
                 
@@ -45,11 +47,14 @@ struct PIDSchedulerView: View {
                     model.schedule(activation: activation, pid: pid)
                     model.currentView = .scheduler
                 }
+                
+                Spacer()
             }
-            .frame(minWidth: 250)
+            .frame(maxWidth: .infinity)
         }
         .padding()
-        .navigationBarBackButtonHidden()
+        .frame(width: model.viewSize(for: .pidScheduler).width,
+               height: model.viewSize(for: .pidScheduler).height)
     }
 }
 

@@ -32,6 +32,8 @@ struct DateSchedulerView: View {
                     .font(.title3)
                     .bold()
                 
+                Spacer()
+                
                 // TODO: Add seconds column
                 DatePicker("Date", selection: $date)
                 
@@ -47,11 +49,14 @@ struct DateSchedulerView: View {
                     model.schedule(activation: activation, date: date)
                     model.currentView = .scheduler
                 }
+                
+                Spacer()
             }
-            .frame(minWidth: 250)
+            .frame(maxWidth: .infinity)
         }
         .padding()
-        .navigationBarBackButtonHidden()
+        .frame(width: model.viewSize(for: .dateScheduler).width,
+               height: model.viewSize(for: .dateScheduler).height)
     }
 }
 

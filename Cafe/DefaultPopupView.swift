@@ -53,7 +53,7 @@ struct DefaultPopupView: View {
                     .buttonStyle(.borderless)
                 }
             }
-            .frame(width: 150)
+            .frame(maxWidth: .infinity)
             
             SettingsLink {
                 Image(systemName: "gear")
@@ -61,6 +61,8 @@ struct DefaultPopupView: View {
             .buttonStyle(.borderless)
         }
         .padding()
+        .frame(width: model.viewSize(for: .default).width,
+               height: model.viewSize(for: .default).height)
     }
 }
 

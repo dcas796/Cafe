@@ -47,7 +47,6 @@ struct SchedulerView: View {
                     .onDelete(perform: deleteItems)
                 }
                 .onDeleteCommand(perform: deleteSelection)
-                .frame(height: 250)
                 .clipShape(RoundedRectangle(cornerRadius: listBorderRadius))
                 .overlay(
                     RoundedRectangle(cornerRadius: listBorderRadius)
@@ -63,6 +62,8 @@ struct SchedulerView: View {
             }
         }
         .padding()
+        .frame(width: model.viewSize(for: .scheduler).width,
+               height: model.viewSize(for: .scheduler).height)
     }
     
     func deleteSelection() {
